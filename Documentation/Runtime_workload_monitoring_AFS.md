@@ -153,8 +153,7 @@ Expected Result:
 
 ### Waveform
 
-![ALU Heavy Workload](Runtime_workload_monitoring_AFS/ALU_workload_result.jpeg)
-
+![ALU Heavy Workload](../Runtime_workload_monitoring_AFS/ALU_workload_result.jpeg)
 Result:
 
 ✅ Correctly classified as ALU Heavy workload
@@ -177,8 +176,7 @@ Expected Result:
 
 ### Waveform
 
-![Memory Heavy Workload](Runtime_workload_monitoring_AFS/Memory_workload_result.jpeg)
-
+![Memory Heavy Workload](../Runtime_workload_monitoring_AFS/Memory_workload_result.jpeg)
 Result:
 
 ✅ Correctly classified as Memory Heavy workload
@@ -201,8 +199,7 @@ Expected Result:
 
 ### Waveform
 
-![Branch Heavy Workload](Runtime_workload_monitoring_AFS/Branch_workload_result.jpeg)
-
+![Branch Heavy Workload](../Runtime_workload_monitoring_AFS/Branch_workload_result.jpeg)
 Result:
 
 ✅ Correctly classified as Branch Heavy workload
@@ -226,7 +223,7 @@ Observed Signals:
 
 ### Waveform
 
-![AFS Verification](Runtime_workload_monitoring_AFS/AFS_result.jpeg)
+![AFS Verification](../Runtime_workload_monitoring_AFS/AFS_result.jpeg)
 
 Results:
 
