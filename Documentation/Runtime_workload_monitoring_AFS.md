@@ -19,10 +19,6 @@ The enhancement consists of two primary components:
 1. Runtime Workload Monitor
 2. Adaptive Frequency Scaling (AFS) Unit
 
-### System-Level Architecture
-
-![Architecture](../docs/images/architecture.png)
-
 ### Operational Flow
 
 ```text
@@ -157,7 +153,7 @@ Expected Result:
 
 ### Waveform
 
-![ALU Heavy Workload](../docs/images/ALU_workload_result.jpeg)
+![ALU Heavy Workload](ALU_workload_result.jpeg)
 
 Result:
 
@@ -181,7 +177,7 @@ Expected Result:
 
 ### Waveform
 
-![Memory Heavy Workload](../docs/images/Memory_workload_result.jpeg)
+![Memory Heavy Workload](Memory_workload_result.jpeg)
 
 Result:
 
@@ -205,7 +201,7 @@ Expected Result:
 
 ### Waveform
 
-![Branch Heavy Workload](../docs/images/Branch_workload_result.jpeg)
+![Branch Heavy Workload](Branch_workload_result.jpeg)
 
 Result:
 
@@ -230,7 +226,7 @@ Observed Signals:
 
 ### Waveform
 
-![AFS Verification](../docs/images/AFS_result.jpeg)
+![AFS Verification](AFS_result.jpeg)
 
 Results:
 
