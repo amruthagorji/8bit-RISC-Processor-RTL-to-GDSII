@@ -30,11 +30,11 @@ begin
             result=a^b;
             3'b101:
             
-             result = a << b;
+             result = a << b[2:0];
              
             3'b110: 
          
-            result = a >> b;
+            result = a >> b[2:0];
             
      
             default:

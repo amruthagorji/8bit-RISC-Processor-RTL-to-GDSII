@@ -18,12 +18,34 @@ wire [7:0] mem_debug;
 wire zero_debug;
 wire branch_debug;
 
-// Force fixed workload mode for debugging
-wire [1:0] workload_mode;
-assign workload_mode = 2'b00;
+//-----------------------------------------------------
+// Workload Mode Selection
+//-----------------------------------------------------
 
-// Dummy wire for unused CPU output
-wire [1:0] workload_mode_debug_unused;
+// Output coming from CPU workload monitor
+wire [1:0] workload_mode_cpu;
+
+// Mode actually used by clock divider
+wire [1:0] workload_mode;
+
+//-----------------------------------------------------
+// Choose ONE
+//-----------------------------------------------------
+
+// Runtime Adaptive Frequency Scaling
+assign workload_mode = workload_mode_cpu;
+
+// Uncomment ONLY for forced testing
+// assign workload_mode = 2'b00;   // ALU Heavy
+// assign workload_mode = 2'b01;   // Memory Heavy
+// assign workload_mode = 2'b10;   // Branch Heavy
+
+//-----------------------------------------------------
+// Debug clock outputs
+//-----------------------------------------------------
+
+wire alu_clk_debug;
+wire mem_clk_debug;
 
 clock_divider clk_div(
     .clk(CLK100MHZ),
@@ -33,7 +55,9 @@ clock_divider clk_div(
 );
 
 cpu cpu_inst(
-   .clk(CLK100MHZ),
+
+    .clk(slow_clk),          // <-- USE slow clock
+
     .rst(~CPU_RESETN),
 
     .alu_out(alu_out),
@@ -45,7 +69,14 @@ cpu cpu_inst(
     .imm_debug(imm_debug),
     .mem_debug(mem_debug),
 
-    .workload_mode_debug(workload_mode_debug_unused)
+    .workload_mode_debug(workload_mode_cpu),
+
+    .alu_enable_debug(),
+    .mem_enable_debug(),
+
+    .alu_clk_debug(alu_clk_debug),
+    .mem_clk_debug(mem_clk_debug)
+
 );
 
 always @(*)

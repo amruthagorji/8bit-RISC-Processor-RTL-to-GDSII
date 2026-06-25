@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module execute_unit(
+module exceute(
     input clk,
     input rst,
     input [15:0] instruction,
@@ -8,9 +8,13 @@ module execute_unit(
     output [7:0] alu_result,
     output zero,
     output branch,
-    output [5:0] imm
-);
+    output [5:0] imm,
 
+    output [3:0] opcode_debug,   // NEW
+
+    output [7:0] mem_debug,
+    output [7:0] imm_debug
+);
     // Decoder outputs
     wire [3:0] opcode;
     wire [2:0] rs1;
@@ -119,5 +123,9 @@ assign rd_sel = (rd_src) ? rd_i : rd_r;
     .write_data(read2),
     .read_data(mem_read_data)
 );
+
+assign mem_debug = mem_read_data;
+assign imm_debug = imm_ext;
+assign opcode_debug = opcode;
 
 endmodule

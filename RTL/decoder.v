@@ -9,14 +9,14 @@ module decoder(
     output [5:0] imm
 );
 
-assign opcode = instruction[15:12];
+assign opcode = instruction[15:12]; // Opcode
 
-assign rs1 = instruction[11:9];
-assign rs2 = instruction[8:6];
+assign rs1 = instruction[11:9];     // Source Register 1
+assign rs2 = instruction[8:6];      // Source Register 2
 
-assign rd_r = instruction[5:3];
-assign rd_i = instruction[8:6];
+assign rd_r = instruction[5:3];     // R-type destination
+assign rd_i = instruction[8:6];     // I-type destination
 
-assign imm = instruction[5:0];
+assign imm = instruction[5:0];      // Immediate
 
 endmodule

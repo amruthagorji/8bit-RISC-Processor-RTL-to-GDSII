@@ -25,7 +25,7 @@ begin
             mem_to_reg = 1'b0;
 
     case(opcode)
-
+//register type
         4'b0000: // ADD
         begin
             alu_control = 3'b000;
@@ -70,7 +70,7 @@ begin
              wb_sel      = 1'b0;
              rd_src = 1'b0;
         end
-
+//immediate type
         4'b0101: // ADDI
         begin
             alu_control = 3'b000;
@@ -97,12 +97,14 @@ begin
             wb_sel      = 1'b1;
             rd_src = 1'b1;
         end
+//branch
         4'b1000: // BEQ
         begin
              alu_control = 3'b001; // SUB
               branch      = 1'b1;
               rd_src = 1'b0;
 end
+//memory
         4'b1011: // LOAD
     begin
         regwrite   = 1'b1;
@@ -121,6 +123,8 @@ end
     
         regwrite   = 1'b0;
     end 
+    
+//shift
            4'b1001: // SLL
     begin
         alu_control = 3'b101;
